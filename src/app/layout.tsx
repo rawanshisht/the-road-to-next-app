@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 
+import { Button } from "@/components/ui/button"
 import { ticketsPath } from "@/paths";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -38,10 +38,14 @@ export default function RootLayout({
             w-full flex py-2.5 px-5 justify-between
           ">
           <div>
-            <Link href="/" className="text-yellow-400 underline mr-4">Home</Link>
+            <Button>
+              <Link href="/" >Home</Link>
+            </Button>
           </div>
           <div>
-            <Link href={ticketsPath()} className="text-yellow-400 underline">Tickets</Link>
+            <Button>
+              <Link href={ticketsPath()} >Tickets</Link>
+            </Button>
           </div>
         </nav>
         <main className="
