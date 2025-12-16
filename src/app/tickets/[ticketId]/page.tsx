@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Placeholder } from "@/components/placeholder";
 import { Button } from "@/components/ui/button";
 import { initialTickets } from "@/data";
+import { TicketItem } from "@/features/ticket/components/ticket-item";
 import { ticketsPath } from "@/paths";
 
 type ticketPageParams = {
@@ -25,11 +26,8 @@ const TicketPage = async ({ params }: ticketPageParams) => {
             } />;
     }
     return (
-        <div>
-            <h2 className="text-4xl text-teal-400">{ticket.title}</h2>
-            <h2 className="text-2xl text-teal-400">{ticket.description}</h2>
-            <h2 className="text-xl text-teal-400">{ticket.status}</h2>
-
+        <div className="flex justify-center animate-fade-in-from-top">
+            <TicketItem ticket={ticket} isDetail />
         </div>
     );
 }
