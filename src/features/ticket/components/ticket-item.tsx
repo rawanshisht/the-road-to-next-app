@@ -1,4 +1,3 @@
-"use client";
 import clsx from "clsx";
 import { LucideEye, LucideTrash } from "lucide-react";
 import Link from "next/link";
@@ -22,12 +21,13 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
             <LucideEye className="w-4 h-4" />
         </Link>
     </Button>
-    const handleDeleteTicket = async () => {
-        await deleteTicket(ticket.id);
-    }
-    const deleteButton = <Button variant="outline" size="icon" onClick={handleDeleteTicket}>
-        <LucideTrash className="w-4 h-4" />
-    </Button>
+
+    const deleteButton =
+        <form action={deleteTicket.bind(null, ticket.id)}>
+            <Button variant="outline" size="icon">
+                <LucideTrash className="w-4 h-4" />
+            </Button>
+        </form>
     return (
         <div className={clsx("w-full flex gap-x-1", {
             "max-w-[420px]": !isDetail,
